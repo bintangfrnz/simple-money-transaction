@@ -1,6 +1,6 @@
 import 'package:simple_money_transaction/user.dart';
 
-enum TransactionType { deposit, withdrawal, transfer }
+enum TransactionType { topup, withdrawal, transfer }
 enum TransactionStatus { created, running, finished, error }
 enum TransactionError { nothing, emptyAmount, insufficientBalance }
 

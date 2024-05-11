@@ -36,12 +36,12 @@ class TransactionManager {
 
       if (amount == 0) {
         changeTransactionStatus(tr, TransactionStatus.error, error: TransactionError.emptyAmount);
-      } else if (type != TransactionType.deposit && from.getBalance() < amount) {
+      } else if (type != TransactionType.topup && from.getBalance() < amount) {
         changeTransactionStatus(tr, TransactionStatus.error, error: TransactionError.insufficientBalance);
       } else {
         switch (type) {
-          case TransactionType.deposit:
-            to.setBalance(from.getBalance() + amount);
+          case TransactionType.topup:
+            to.setBalance(to.getBalance() + amount);
           case TransactionType.withdrawal:
             from.setBalance(from.getBalance() - amount);
           case TransactionType.transfer:
